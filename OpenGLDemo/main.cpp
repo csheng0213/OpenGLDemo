@@ -66,14 +66,44 @@ void DrawPointTest1()
     
 }
 
+void DrawLineTest()
+{
+    glBegin(GL_LINES);
+        glVertex3f(0.0f, 0.0f, 0.0f);
+        glVertex3f(50.0f, 50.0f, 50.0f);
+    glEnd();
+    
+}
+
+void DrawTrianglesTest()
+{
+    glBegin(GL_TRIANGLES);
+        glVertex2f(0.0f, 0.0f);
+        glVertex2f(25.0f, 25.0f);
+        glVertex2f(50.0f, 0.0f);
+        glVertex2f(-50.0f, 0.0f);
+        glVertex2f(-75.0f, 50.0f);
+        glVertex2f(-25.0f, 0.0f);
+    glEnd();
+}
+
+void DrawTriganglesStripTest()
+{
+    glBegin(GL_TRIANGLE_STRIP);
+    glVertex2f(0.0f, 0.0f);
+    glVertex2f(25.0f, 25.0f);
+    glVertex2f(50.0f, 0.0f);
+    glVertex2f(50.0f, 10.0f);
+//    glVertex2f(-75.0f, 50.0f);
+    glEnd();
+}
+
 void Display()
 {
     glClear(GL_COLOR_BUFFER_BIT);
     glColor3f(1.0f, 0, 0);
     
-    printf("x1: %f y1: %f w: %f h: %f \n", x1, y1, x1+rsize, y2+rsize);
-    
-    DrawPointTest1();
+    DrawTriganglesStripTest();
     
     glFlush();
     glutSwapBuffers();
